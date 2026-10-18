@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precision Lab · Maßtoleranzen verstehen</title>
+<link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="#">⌘ <span>PRECISION<span class="accent"> LAB</span></span></a><span class="tag">DEJAN VUJIC / LEARNING PROJECT 01</span></header>
+<main>
+<section class="intro"><p class="eyebrow">FROM WORKSHOP TO WORKSPACE</p><h1>Gute Arbeit beginnt<br>mit <span>Präzision.</span></h1><p class="lead">Vom Nennmaß zum Prüfergebnis. Entdecke, wie kleine Abweichungen den Unterschied machen — mit einem interaktiven Toleranzcheck.</p><div class="pills"><span>01 · Eingeben</span><span>02 · Prüfen</span><span>03 · Verstehen</span></div></section>
+<div class="workspace">
+<section class="panel input-panel" aria-labelledby="input-title"><div class="panel-head"><span class="eyebrow">DEINE WERKZEUGBANK</span><span class="dot">● BEREIT</span></div><h2 id="input-title">Maße &amp; Toleranzen</h2><p class="muted">Alle Angaben in Millimetern. Abmaße sind vorzeichenbehaftete Abweichungen vom Nennmaß.</p>
+<form id="check-form" novalidate>
+<label for="nominal">Nennmaß <span>mm</span></label><input id="nominal" name="nominal" inputmode="decimal" value="25,000" required>
+<div class="two"><div><label for="lower">Unteres Abmaß <span>mm</span></label><input id="lower" name="lower" inputmode="decimal" value="-0,020" required></div><div><label for="upper">Oberes Abmaß <span>mm</span></label><input id="upper" name="upper" inputmode="decimal" value="0,020" required></div></div>
+<label for="actual">Gemessenes Istmaß <span>mm</span></label><input id="actual" name="actual" inputmode="decimal" value="25,012" required>
+<p id="error" class="error" role="alert"></p><button type="submit" class="primary">Maß prüfen <span>↗</span></button>
+</form><div class="examples"><span>Beispiele laden</span><button type="button" data-example="inside">Innerhalb</button><button type="button" data-example="edge">Grenzfall</button><button type="button" data-example="outside">Außerhalb</button></div>
+</section>
+<section class="panel result-panel" aria-labelledby="result-title"><div class="panel-head"><span class="eyebrow">PRÜFPROTOKOLL</span><span class="muted">LIVE CALCULATION</span></div><div id="result" aria-live="polite"><div class="status" id="status">● INNERHALB DER TOLERANZ</div><h2 id="result-title">Das Maß passt.</h2><p id="explanation" class="muted"></p><div class="metrics"><div><span>Mindestmaß</span><strong id="minimum"></strong></div><div><span>Höchstmaß</span><strong id="maximum"></strong></div><div><span>Toleranzbreite</span><strong id="width"></strong></div></div><div class="scale-box"><div class="scale-top"><span>DEIN ISTMASS</span><strong id="measured"></strong></div><div class="track"><div class="allowed"></div><div class="marker" id="marker"></div></div><div class="scale-labels"><span id="scale-min"></span><span>Toleranzbereich</span><span id="scale-max"></span></div><p id="deviation" class="muted"></p></div><div class="formula"><span>SO WIRD GERECHNET</span><p id="formula"></p></div></div></section>
+</div>
+<section class="knowledge"><div><span class="eyebrow">HANDWERK TRIFFT CODE</span><h2>Ein kleines Maß.<br>Ein klarer Unterschied.</h2></div><div><h3>Nennmaß ≠ Istmaß</h3><p>Das Nennmaß ist der Ausgangswert der Zeichnung. Das Istmaß ist der gemessene Wert eines Werkstücks.</p></div><div><h3>Grenzen inklusive</h3><p>Liegt das Istmaß genau auf dem Mindest- oder Höchstmaß, zählt es in dieser Demo zum zulässigen Bereich.</p></div></section>
+</main><footer><span>DEJAN VUJIC · BUILT WITH CARE.</span><span>Lern-Demo · frei eingegebene Toleranzen · keine ISO-Passungsauslegung</span></footer>
+</body></html>

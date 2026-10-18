@@ -1,0 +1,17 @@
+const assert = require('node:assert/strict');
+const {parseMillimetres:p,calculate:c} = require('./app.js');
+assert.equal(p('25,012'),25012);
+assert.equal(p('-0.020'),-20);
+for(const invalid of ['', 'abc', '1,0001', 'Infinity', '1e3']) assert.equal(p(invalid),null);
+assert.equal(c(25000,-20,20,25012).inside,true);
+assert.equal(c(25000,-20,20,24980).inside,true);
+assert.equal(c(25000,-20,20,25020).inside,true);
+assert.equal(c(25000,-20,20,25021).inside,false);
+assert.equal(c(25000,-20,20,24979).inside,false);
+assert.equal(c(25000,10,30,25020).inside,true);
+assert.equal(c(25000,-20,20,25035).distance,15);
+assert.throws(()=>c(25000,20,-20,25000));
+assert.throws(()=>c(25000,0,0,25000));
+assert.throws(()=>c(0,-20,20,0));
+assert.throws(()=>c(10,-20,20,10));
+console.log('All calculation and input checks passed.');
